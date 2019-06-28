@@ -3,6 +3,7 @@ from antlr4 import *
 from GramaticaRegularLexer import GramaticaRegularLexer
 from GramaticaRegularParser import GramaticaRegularParser
 from GRVisitor import GRVisitor
+from Gramatica import Gramatica
 
 def main(argv):
     entrada = FileStream(argv[1])
@@ -32,6 +33,19 @@ def main(argv):
     print("\n--------------------")
     palavra = input("Entre com uma palavra: ")
     print(palavra)
+    print("\n--------------------")
+        
+    gramatica = Gramatica()
+
+    # Verifica se a palavra é válida para avaliação
+    if(gramatica.aceitaEntrada(palavra)):
+        #Verifica se a palavra pertence a GRD
+        if(gramatica.validaEntrada(gramaticavisitor.inicial, gramaticavisitor.producoes)):
+            print("Palavra faz parte da gramática.")
+        else:
+            print("Palavra NÃO faz parte da gramática.")
+    else:
+        print("ERRO: Palavra inválida.")
 
 if __name__ == '__main__':
     main(sys.argv)
