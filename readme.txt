@@ -15,3 +15,6 @@ ERROS DA GRAMÁTICA:
 - Simbolo inicial não é um único elemento
 - Simbolo inicial não declarado na lista de não terminais
 - Simbolo inicial não está declarado
+
+TO-DO:
+enviar mensagem de erro, mostrando a posição da palavra a ser testada em que houve o problema.

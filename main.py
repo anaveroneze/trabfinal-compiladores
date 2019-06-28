@@ -32,15 +32,14 @@ def main(argv):
     
     print("\n--------------------")
     palavra = input("Entre com uma palavra: ")
-    print(palavra)
     print("\n--------------------")
         
     gramatica = Gramatica()
 
     # Verifica se a palavra é válida para avaliação
-    if(gramatica.aceitaEntrada(palavra)):
+    if(gramatica.aceitaEntrada(palavra, gramaticavisitor.terminais, gramaticavisitor.producoes)):
         #Verifica se a palavra pertence a GRD
-        if(gramatica.validaEntrada(gramaticavisitor.inicial, gramaticavisitor.producoes)):
+        if(gramatica.validaEntrada(gramaticavisitor.inicial, '')):
             print("Palavra faz parte da gramática.")
         else:
             print("Palavra NÃO faz parte da gramática.")
