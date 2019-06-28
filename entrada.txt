@@ -1,4 +1,4 @@
 V = [S, A]
 T = [a, b]
-P = [(S>aA), (A>baA), (A>#)]
+P = [(S>aA), (A>baA|aA|#)]
 S = S

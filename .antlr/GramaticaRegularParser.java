@@ -29,7 +29,7 @@ public class GramaticaRegularParser extends Parser {
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'V '", "'T '", "'P '", "'S '", "'= ['", "']'", "', '", "'= '", 
-		"'('", "'>'", "')'", "'), '", "' | '", null, null, "'#'"
+		"'('", "'>'", "')'", "'), '", "'|'", null, null, "'#'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
@@ -468,19 +468,19 @@ public class GramaticaRegularParser extends Parser {
 				match(VAR_T);
 				setState(71);
 				match(VAR);
+				setState(72);
+				match(T__12);
+				setState(73);
+				transicao();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(72);
-				match(VAR_T);
-				setState(73);
-				match(VAR);
 				setState(74);
-				match(T__12);
+				match(VAR_T);
 				setState(75);
-				transicao();
+				match(VAR);
 				}
 				break;
 			case 3:
@@ -521,8 +521,8 @@ public class GramaticaRegularParser extends Parser {
 		"\67\5\20\t\2\678\7\b\2\28\17\3\2\2\29:\7\13\2\2:;\7\20\2\2;<\7\f\2\2<"+
 		"=\5\22\n\2=>\7\r\2\2>G\3\2\2\2?@\7\13\2\2@A\7\20\2\2AB\7\f\2\2BC\5\22"+
 		"\n\2CD\7\16\2\2DE\5\20\t\2EG\3\2\2\2F9\3\2\2\2F?\3\2\2\2G\21\3\2\2\2H"+
-		"I\7\21\2\2IP\7\20\2\2JK\7\21\2\2KL\7\20\2\2LM\7\17\2\2MP\5\22\n\2NP\7"+
-		"\22\2\2OH\3\2\2\2OJ\3\2\2\2ON\3\2\2\2P\23\3\2\2\2\6*\60FO";
+		"I\7\21\2\2IJ\7\20\2\2JK\7\17\2\2KP\5\22\n\2LM\7\21\2\2MP\7\20\2\2NP\7"+
+		"\22\2\2OH\3\2\2\2OL\3\2\2\2ON\3\2\2\2P\23\3\2\2\2\6*\60FO";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

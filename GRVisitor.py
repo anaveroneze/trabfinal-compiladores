@@ -63,21 +63,58 @@ class GRVisitor(GramaticaRegularVisitor):
     def error(self):
         
         print("\n--------------------")
-        print("ERROS:\n")
         
         # Símbolo inicial não é único, não está declarado na lista de não-terminais, não está declarado.
         if len(self.inicial) > 1:
-            print("Símbolo inicial", self.inicial, "não é um único caractere não-terminal.")
+            print("ERRO: Símbolo inicial", self.inicial, "não é um único caractere não-terminal.")
         if self.inicial not in self.naoterminais:
-            print("Símbolo inicial", self.inicial, "não declarado como não-terminal.")
+            print("ERRO: Símbolo inicial", self.inicial, "não declarado como não-terminal.")
         if self.inicial == None:
-            print("Nenhum símbolo inicial foi declarado.")
+            print("ERRO: Nenhum símbolo inicial foi declarado.")
 
         # Simbolo duplicado na lista de terminais
+        self.terminais.sort()
+        for i in range(len(self.terminais)-1):
+            if(self.terminais[i] == self.terminais[i+1]):
+                print("ERRO: Símbolo ", self.terminais[i] ,"duplicado na lista de terminais.")
         
         # Simbolo duplicado na lista de não terminais
+        self.naoterminais.sort()
+        for i in range(len(self.naoterminais)-1):
+            if(self.naoterminais[i] == self.naoterminais[i+1]):
+                print("ERRO: Símbolo ", self.naoterminais[i] ,"duplicado na lista de não terminais.")
+        
+        
+        #Separa todas produções separadas por pipe:
+        bk_producoes = []
+        bk_producoes = self.producoes
+        self.producoes = []
+        
+        for producao in bk_producoes:
+            if '|' not in producao: 
+                self.producoes.append(producao)
+            else:
+                simb_esq = producao[producao.find("(")+1:producao.find(">")]
+                P1 = ""
+                for i in producao[producao.find(">")+1:producao.find(")")]:
+                    if i == '|':
+                        P = "(" + simb_esq + ">" + P1 + ")"
+                        self.producoes.append(P)
+                        P1 = ""
+                    else:
+                        P1 = P1+i
+                P = "(" + simb_esq + ">" + P1 + ")"
+                self.producoes.append(P)
 
+        # Produção com simbolos não definidos
+        for producao in self.producoes:
+            simb_esq = producao[producao.find("(")+1:producao.find(">")]
+            simb_dir = producao[producao.find(">")+1:producao.find(")")]
 
-        # for producao in self.producoes:
-        #     print(producao)
+            if simb_esq not in self.naoterminais:
+                print("ERRO: Símbolo ", simb_esq ,"a esquerda da produção não está definido nos não terminais.")
+            
+            for char in simb_dir:
+                if (char not in self.terminais) and (char not in self.naoterminais) and (char != '#'):
+                    print("ERRO: Símbolo ", char ,"a direita da produção não está definido.")
         

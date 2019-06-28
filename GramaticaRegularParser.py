@@ -29,8 +29,8 @@ def serializedATN():
         buf.write(":;\7\20\2\2;<\7\f\2\2<=\5\22\n\2=>\7\r\2\2>G\3\2\2\2?")
         buf.write("@\7\13\2\2@A\7\20\2\2AB\7\f\2\2BC\5\22\n\2CD\7\16\2\2")
         buf.write("DE\5\20\t\2EG\3\2\2\2F9\3\2\2\2F?\3\2\2\2G\21\3\2\2\2")
-        buf.write("HI\7\21\2\2IP\7\20\2\2JK\7\21\2\2KL\7\20\2\2LM\7\17\2")
-        buf.write("\2MP\5\22\n\2NP\7\22\2\2OH\3\2\2\2OJ\3\2\2\2ON\3\2\2\2")
+        buf.write("HI\7\21\2\2IJ\7\20\2\2JK\7\17\2\2KP\5\22\n\2LM\7\21\2")
+        buf.write("\2MP\7\20\2\2NP\7\22\2\2OH\3\2\2\2OL\3\2\2\2ON\3\2\2\2")
         buf.write("P\23\3\2\2\2\6*\60FO")
         return buf.getvalue()
 
@@ -47,7 +47,7 @@ class GramaticaRegularParser ( Parser ):
 
     literalNames = [ "<INVALID>", "'V '", "'T '", "'P '", "'S '", "'= ['", 
                      "']'", "', '", "'= '", "'('", "'>'", "')'", "'), '", 
-                     "' | '", "<INVALID>", "<INVALID>", "'#'" ]
+                     "'|'", "<INVALID>", "<INVALID>", "'#'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -566,18 +566,18 @@ class GramaticaRegularParser ( Parser ):
                 self.match(GramaticaRegularParser.VAR_T)
                 self.state = 71
                 self.match(GramaticaRegularParser.VAR)
+                self.state = 72
+                self.match(GramaticaRegularParser.T__12)
+                self.state = 73
+                self.transicao()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 72
-                self.match(GramaticaRegularParser.VAR_T)
-                self.state = 73
-                self.match(GramaticaRegularParser.VAR)
                 self.state = 74
-                self.match(GramaticaRegularParser.T__12)
+                self.match(GramaticaRegularParser.VAR_T)
                 self.state = 75
-                self.transicao()
+                self.match(GramaticaRegularParser.VAR)
                 pass
 
             elif la_ == 3:

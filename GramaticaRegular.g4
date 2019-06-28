@@ -38,8 +38,8 @@ producao
 
 // validação para ser uma gramática linear a direita (GLD)
 transicao
-        : VAR_T VAR
-        | VAR_T VAR ' | ' transicao
+        : VAR_T VAR '|' transicao
+        | VAR_T VAR
         | VAZIO
         ;
 

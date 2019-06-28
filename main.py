@@ -27,10 +27,11 @@ def main(argv):
 
     # 2 - fazer o tratamento de erros
     gramaticavisitor.error()    
+    print("Novas produções: ", gramaticavisitor.producoes)
     
-    # print("\n--------------------")
-    # palavra = input("Entre com uma palavra: ")
-    # print(palavra)
+    print("\n--------------------")
+    palavra = input("Entre com uma palavra: ")
+    print(palavra)
 
 if __name__ == '__main__':
     main(sys.argv)
