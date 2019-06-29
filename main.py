@@ -13,24 +13,24 @@ def main(argv):
     tree = parser.gram()
 
     gramaticavisitor = GRVisitor()
-    gramaticavisitor.visit(tree) 
-    #classe para visitar nós de GramaticaRegularVisitor
-    # 1 - processar essa string tree e printar bonitinha a definição do autômato
-    print("Lida pelo parser:")
+    gramaticavisitor.visit(tree) #classe para visitar nós de GramaticaRegularVisitor
+    print("GRD lida pelo parser:")
     print(tree.toStringTree(recog=parser))
 
+    #Definição da GRD de entrada
     print("\n--------------------")
-    print("GRAMATICA REGULAR:\n")
-    print("Símbolos terminais: ", gramaticavisitor.naoterminais)
-    print("Símbolos não terminais: ", gramaticavisitor.terminais)
+    print("DEFINIÇÃO:\n")
+    print("Símbolos não terminais: ", gramaticavisitor.naoterminais)
+    print("Símbolos terminais: ", gramaticavisitor.terminais)
     print("Produções: ", gramaticavisitor.producoes)
     print("Símbolo inicial: ", gramaticavisitor.inicial)
 
-    # 2 - fazer o tratamento de erros
+    #Tratamento de erros sobre a gramática
     gramaticavisitor.error()    
-    print("Novas produções: ", gramaticavisitor.producoes)
+    #Separa as produções para facilitar derivação
+    print("Novo formato produções: ", gramaticavisitor.producoes)
     
-    print("\n--------------------")
+    print("--------------------")
     palavra = input("Entre com uma palavra: ")
     print("\n--------------------")
         
@@ -40,9 +40,9 @@ def main(argv):
     if(gramatica.aceitaEntrada(palavra, gramaticavisitor.terminais, gramaticavisitor.producoes)):
         #Verifica se a palavra pertence a GRD
         if(gramatica.validaEntrada(gramaticavisitor.inicial, '')):
-            print("Palavra faz parte da gramática.")
+            print("\nPalavra faz parte da gramática.")
         else:
-            print("Palavra NÃO faz parte da gramática.")
+            print("\nPalavra NÃO faz parte da gramática.")
 
 if __name__ == '__main__':
     main(sys.argv)

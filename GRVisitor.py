@@ -59,7 +59,7 @@ class GRVisitor(GramaticaRegularVisitor):
     def visitTransicao(self, ctx:GramaticaRegularParser.TransicaoContext):
         return self.visitChildren(ctx)
 
-
+    # Função para tratamento de erros da gramática
     def error(self):
         
         print("\n--------------------")
@@ -106,7 +106,7 @@ class GRVisitor(GramaticaRegularVisitor):
                 P = "(" + simb_esq + ">" + P1 + ")"
                 self.producoes.append(P)
 
-        # Produção com simbolos não definidos
+        #Produção com simbolos não definidos
         for producao in self.producoes:
             simb_esq = producao[producao.find("(")+1:producao.find(">")]
             simb_dir = producao[producao.find(">")+1:producao.find(")")]
