@@ -18,3 +18,14 @@ ERROS DA GRAMÁTICA:
 
 TO-DO:
 enviar mensagem de erro, mostrando a posição da palavra a ser testada em que houve o problema.
+
+Exemplos entradas para "entrada1.txt":
+ab
+aaabb
+
+Exemplos entradas para "entrada2.txt":
+abcd
+abc
+aaaaaaaaabbccdd
+aaaaaaaaabbccd
+aabbccc

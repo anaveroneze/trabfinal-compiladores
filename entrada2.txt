@@ -1,0 +1,4 @@
+V = [A, S]
+T = [a, b, c, d]
+P = [(A>aA|bS|#), (S>cS|d|#)]
+S = A

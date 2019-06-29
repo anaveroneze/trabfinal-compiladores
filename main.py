@@ -43,8 +43,6 @@ def main(argv):
             print("Palavra faz parte da gramática.")
         else:
             print("Palavra NÃO faz parte da gramática.")
-    else:
-        print("ERRO: Palavra inválida.")
 
 if __name__ == '__main__':
     main(sys.argv)
