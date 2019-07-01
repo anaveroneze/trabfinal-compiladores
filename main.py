@@ -10,10 +10,13 @@ def main(argv):
     lexer = GramaticaRegularLexer(entrada)
     stream = CommonTokenStream(lexer)
     parser = GramaticaRegularParser(stream)
+
+    #aqui arrumar para retornar se acha erro na gramatica
     tree = parser.gram()
 
     gramaticavisitor = GRVisitor()
     gramaticavisitor.visit(tree) #classe para visitar nós de GramaticaRegularVisitor
+
     print("GRD lida pelo parser:")
     print(tree.toStringTree(recog=parser))
 
@@ -26,7 +29,10 @@ def main(argv):
     print("Símbolo inicial: ", gramaticavisitor.inicial)
 
     #Tratamento de erros sobre a gramática
-    gramaticavisitor.error()    
+    if (gramaticavisitor.error() == 1):
+        print("Gramática inválida!")
+        exit(0)
+
     #Separa as produções para facilitar derivação
     print("Novo formato produções: ", gramaticavisitor.producoes)
     

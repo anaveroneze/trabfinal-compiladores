@@ -67,22 +67,27 @@ class GRVisitor(GramaticaRegularVisitor):
         # Símbolo inicial não é único, não está declarado na lista de não-terminais, não está declarado.
         if len(self.inicial) > 1:
             print("ERRO: Símbolo inicial", self.inicial, "não é um único caractere não-terminal.")
+            return 1
         if self.inicial not in self.naoterminais:
             print("ERRO: Símbolo inicial", self.inicial, "não declarado como não-terminal.")
+            return 1
         if self.inicial == None:
             print("ERRO: Nenhum símbolo inicial foi declarado.")
+            return 1
 
         # Simbolo duplicado na lista de terminais
         self.terminais.sort()
         for i in range(len(self.terminais)-1):
             if(self.terminais[i] == self.terminais[i+1]):
                 print("ERRO: Símbolo ", self.terminais[i] ,"duplicado na lista de terminais.")
+                return 1
         
         # Simbolo duplicado na lista de não terminais
         self.naoterminais.sort()
         for i in range(len(self.naoterminais)-1):
             if(self.naoterminais[i] == self.naoterminais[i+1]):
                 print("ERRO: Símbolo ", self.naoterminais[i] ,"duplicado na lista de não terminais.")
+                return 1
         
         
         #Separa todas produções separadas por pipe:
@@ -113,8 +118,10 @@ class GRVisitor(GramaticaRegularVisitor):
 
             if simb_esq not in self.naoterminais:
                 print("ERRO: Símbolo ", simb_esq ,"a esquerda da produção não está definido nos não terminais.")
-            
+                return 1
+
             for char in simb_dir:
                 if (char not in self.terminais) and (char not in self.naoterminais) and (char != '#'):
                     print("ERRO: Símbolo ", char ,"a direita da produção não está definido.")
-        
+                    return 1
+        return 0
