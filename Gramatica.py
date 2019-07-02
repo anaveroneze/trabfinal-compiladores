@@ -59,7 +59,10 @@ class Gramatica():
 
         empilha = self.busca_producao(inicial, entrada)
         #Imprime passo a passo os movimentos entre símbolos não terminais
-        print("Palavra:", self.palavra, '\tGerada:', entrada, '\tInicial:', inicial,'\tDeriva em:', empilha)
+        if(empilha == 0):
+             print("Palavra:", self.palavra, '\tGerada:', entrada, '\tInicial:', inicial,'\tNão encontrou derivação.')
+        else:
+            print("Palavra:", self.palavra, '\tGerada:', entrada, '\tInicial:', inicial,'\tDeriva em:', empilha)
 
         if(empilha):            
             #Desempilha não terminal
