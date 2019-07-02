@@ -4,6 +4,30 @@ from GramaticaRegularLexer import GramaticaRegularLexer
 from GramaticaRegularParser import GramaticaRegularParser
 from GRVisitor import GRVisitor
 from Gramatica import Gramatica
+from antlr4.error.ErrorListener import ErrorListener
+
+# Redefinição das funções de tratamento de erros do antlr
+# Retirado de: https://www.antlr.org/api/Java/org/antlr/v4/runtime/BaseErrorListener.html
+class ErrorListenerNovo( ErrorListener ):
+
+    def __init__(self):
+        super(ErrorListenerNovo, self).__init__()
+    
+    def reportAmbiguity(self, recognizer, dfa, startIndex, stopIndex, exact, ambigAlts, configs):
+        print("ERRO: Gramática inválida.")
+        exit(1)
+
+    def reportAttemptingFullContext(self, recognizer, dfa, startIndex, stopIndex, conflictingAlts, configs):
+        print("ERRO: Gramática inválida.")
+        exit(1)
+
+    def reportContextSensitivity(self, recognizer, dfa, startIndex, stopIndex, prediction, configs):
+        print("ERRO: Gramática inválida.")
+        exit(1)
+
+    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
+        print("ERRO: Gramática inválida.")
+        exit(1)
 
 def main(argv):
     entrada = FileStream(argv[1])
@@ -11,7 +35,9 @@ def main(argv):
     stream = CommonTokenStream(lexer)
     parser = GramaticaRegularParser(stream)
 
-    #aqui arrumar para retornar se acha erro na gramatica
+    #Retorno (exit - program) para erros sobre a gramática encontrados pelo parser
+    parser.addErrorListener(ErrorListenerNovo())
+
     tree = parser.gram()
 
     gramaticavisitor = GRVisitor()
@@ -31,7 +57,7 @@ def main(argv):
     #Tratamento de erros sobre a gramática
     if (gramaticavisitor.error() == 1):
         print("Gramática inválida!")
-        exit(0)
+        exit(1)
 
     #Separa as produções para facilitar derivação
     print("Novo formato produções: ", gramaticavisitor.producoes)
