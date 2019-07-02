@@ -8,30 +8,31 @@ import sys
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\23")
-        buf.write("R\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("V\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3")
         buf.write("\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5")
         buf.write("\5\5+\n\5\3\6\3\6\3\6\3\6\5\6\61\n\6\3\7\3\7\3\7\3\b\3")
         buf.write("\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t")
-        buf.write("\3\t\3\t\5\tG\n\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\nP\n\n")
-        buf.write("\3\n\2\2\13\2\4\6\b\n\f\16\20\22\2\2\2M\2\24\3\2\2\2\4")
-        buf.write("\36\3\2\2\2\6\"\3\2\2\2\b*\3\2\2\2\n\60\3\2\2\2\f\62\3")
-        buf.write("\2\2\2\16\65\3\2\2\2\20F\3\2\2\2\22O\3\2\2\2\24\25\7\3")
-        buf.write("\2\2\25\26\5\4\3\2\26\27\7\4\2\2\27\30\5\6\4\2\30\31\7")
-        buf.write("\5\2\2\31\32\5\16\b\2\32\33\7\6\2\2\33\34\5\f\7\2\34\35")
-        buf.write("\7\2\2\3\35\3\3\2\2\2\36\37\7\7\2\2\37 \5\b\5\2 !\7\b")
-        buf.write("\2\2!\5\3\2\2\2\"#\7\7\2\2#$\5\n\6\2$%\7\b\2\2%\7\3\2")
-        buf.write("\2\2&\'\7\20\2\2\'(\7\t\2\2(+\5\b\5\2)+\7\20\2\2*&\3\2")
-        buf.write("\2\2*)\3\2\2\2+\t\3\2\2\2,-\7\21\2\2-.\7\t\2\2.\61\5\n")
-        buf.write("\6\2/\61\7\21\2\2\60,\3\2\2\2\60/\3\2\2\2\61\13\3\2\2")
-        buf.write("\2\62\63\7\n\2\2\63\64\7\20\2\2\64\r\3\2\2\2\65\66\7\7")
-        buf.write("\2\2\66\67\5\20\t\2\678\7\b\2\28\17\3\2\2\29:\7\13\2\2")
-        buf.write(":;\7\20\2\2;<\7\f\2\2<=\5\22\n\2=>\7\r\2\2>G\3\2\2\2?")
-        buf.write("@\7\13\2\2@A\7\20\2\2AB\7\f\2\2BC\5\22\n\2CD\7\16\2\2")
-        buf.write("DE\5\20\t\2EG\3\2\2\2F9\3\2\2\2F?\3\2\2\2G\21\3\2\2\2")
-        buf.write("HI\7\21\2\2IJ\7\20\2\2JK\7\17\2\2KP\5\22\n\2LM\7\21\2")
-        buf.write("\2MP\7\20\2\2NP\7\22\2\2OH\3\2\2\2OL\3\2\2\2ON\3\2\2\2")
-        buf.write("P\23\3\2\2\2\6*\60FO")
+        buf.write("\3\t\3\t\5\tG\n\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n")
+        buf.write("\3\n\3\n\5\nT\n\n\3\n\2\2\13\2\4\6\b\n\f\16\20\22\2\2")
+        buf.write("\2S\2\24\3\2\2\2\4\36\3\2\2\2\6\"\3\2\2\2\b*\3\2\2\2\n")
+        buf.write("\60\3\2\2\2\f\62\3\2\2\2\16\65\3\2\2\2\20F\3\2\2\2\22")
+        buf.write("S\3\2\2\2\24\25\7\3\2\2\25\26\5\4\3\2\26\27\7\4\2\2\27")
+        buf.write("\30\5\6\4\2\30\31\7\5\2\2\31\32\5\16\b\2\32\33\7\6\2\2")
+        buf.write("\33\34\5\f\7\2\34\35\7\2\2\3\35\3\3\2\2\2\36\37\7\7\2")
+        buf.write("\2\37 \5\b\5\2 !\7\b\2\2!\5\3\2\2\2\"#\7\7\2\2#$\5\n\6")
+        buf.write("\2$%\7\b\2\2%\7\3\2\2\2&\'\7\20\2\2\'(\7\t\2\2(+\5\b\5")
+        buf.write("\2)+\7\20\2\2*&\3\2\2\2*)\3\2\2\2+\t\3\2\2\2,-\7\21\2")
+        buf.write("\2-.\7\t\2\2.\61\5\n\6\2/\61\7\21\2\2\60,\3\2\2\2\60/")
+        buf.write("\3\2\2\2\61\13\3\2\2\2\62\63\7\n\2\2\63\64\7\20\2\2\64")
+        buf.write("\r\3\2\2\2\65\66\7\7\2\2\66\67\5\20\t\2\678\7\b\2\28\17")
+        buf.write("\3\2\2\29:\7\13\2\2:;\7\20\2\2;<\7\f\2\2<=\5\22\n\2=>")
+        buf.write("\7\r\2\2>G\3\2\2\2?@\7\13\2\2@A\7\20\2\2AB\7\f\2\2BC\5")
+        buf.write("\22\n\2CD\7\16\2\2DE\5\20\t\2EG\3\2\2\2F9\3\2\2\2F?\3")
+        buf.write("\2\2\2G\21\3\2\2\2HI\7\21\2\2IJ\7\20\2\2JK\7\17\2\2KT")
+        buf.write("\5\22\n\2LM\7\21\2\2MN\7\17\2\2NT\5\22\n\2OT\7\21\2\2")
+        buf.write("PQ\7\21\2\2QT\7\20\2\2RT\7\22\2\2SH\3\2\2\2SL\3\2\2\2")
+        buf.write("SO\3\2\2\2SP\3\2\2\2SR\3\2\2\2T\23\3\2\2\2\6*\60FS")
         return buf.getvalue()
 
 
@@ -557,7 +558,7 @@ class GramaticaRegularParser ( Parser ):
         localctx = GramaticaRegularParser.TransicaoContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_transicao)
         try:
-            self.state = 77
+            self.state = 81
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
@@ -577,12 +578,28 @@ class GramaticaRegularParser ( Parser ):
                 self.state = 74
                 self.match(GramaticaRegularParser.VAR_T)
                 self.state = 75
-                self.match(GramaticaRegularParser.VAR)
+                self.match(GramaticaRegularParser.T__12)
+                self.state = 76
+                self.transicao()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 76
+                self.state = 77
+                self.match(GramaticaRegularParser.VAR_T)
+                pass
+
+            elif la_ == 4:
+                self.enterOuterAlt(localctx, 4)
+                self.state = 78
+                self.match(GramaticaRegularParser.VAR_T)
+                self.state = 79
+                self.match(GramaticaRegularParser.VAR)
+                pass
+
+            elif la_ == 5:
+                self.enterOuterAlt(localctx, 5)
+                self.state = 80
                 self.match(GramaticaRegularParser.VAZIO)
                 pass
 
